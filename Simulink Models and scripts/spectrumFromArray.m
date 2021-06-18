@@ -1,0 +1,10 @@
+Fs=1000;
+Ts=Fs/1000;
+L=length(Xfm);
+t=(0:L-1)*Ts;
+NFFT=2^nextpow2(L);
+X=fft(Xfm,NFFT)/L;
+f=Fs/2*linspace(0,1,NFFT/2+1);
+plot(f,2*abs(X(1:NFFT/2+1)),'-');
+xlabel('Frequency (Hz)');
+ylabel('|vfm(f)|');
